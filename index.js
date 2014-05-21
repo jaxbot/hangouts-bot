@@ -43,3 +43,10 @@ connection.on('error', function(e) {
 	console.log(e);
 });
 
+function sendMessage(to, message) {
+	var stanza = new xmpp.Element(
+		'message',
+		{ to: to, type: 'chat' }
+	).c('body').t(message")
+	connection.send(stanza);
+}
