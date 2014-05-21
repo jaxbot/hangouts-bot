@@ -1,13 +1,13 @@
 {
   "name": "hangouts-bot",
-  "version": "0.0.0",
-  "description": "Simple Hangsouts bot",
+  "version": "0.1.0",
+  "description": "Simple Hangouts bot library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "BSD-2-Clause",
+  "author": "Jonathan Warner (Jaxbot)",
+  "license": "MIT",
   "dependencies": {
     "node-xmpp": "~1.0.0-alpha1"
   }
