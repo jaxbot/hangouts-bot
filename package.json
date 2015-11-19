@@ -9,6 +9,6 @@
   "author": "Jonathan Warner (Jaxbot)",
   "license": "MIT",
   "dependencies": {
-    "node-xmpp": "~1.0.0-alpha1"
+    "node-xmpp-client": "^3.0.0"
   }
 }

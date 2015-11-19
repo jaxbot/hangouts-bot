@@ -3,17 +3,18 @@ var events = require('events');
 module.exports = function(username, password, onlineStatus) {
 	events.EventEmitter.call(this);
 
-	var xmpp = require('node-xmpp');
+	var Client = require('node-xmpp-client');
+	var Element = require('node-xmpp-core').Stanza.Element;
 	var that = this;
 
-	this.connection = connection = new xmpp.Client({
+	this.connection = connection = new Client({
 		jid: username,
 		password: password,
 		host: "talk.google.com"
 	});
 
 	this.connection.on('online', function() {
-		connection.send(new xmpp.Element('presence', {})
+		connection.send(new Element('presence', {})
 			.c('show')
 			.t('chat')
 			.up()
@@ -21,7 +22,7 @@ module.exports = function(username, password, onlineStatus) {
 			.t(onlineStatus || 'Online')
 		);
 		
-		var roster_elem = new xmpp.Element('iq', {
+		var roster_elem = new Element('iq', {
 			'from': connection.jid,
 			'type': 'get',
 			'id': 'google-roster'
@@ -57,7 +58,7 @@ module.exports = function(username, password, onlineStatus) {
 	});
 
 	this.sendMessage = function(to, message) {
-		var stanza = new xmpp.Element('message',
+		var stanza = new Element('message',
 			{
 				to: to,
 				type: 'chat'
