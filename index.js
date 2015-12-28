@@ -4,7 +4,7 @@ module.exports = function(username, password, onlineStatus) {
 	events.EventEmitter.call(this);
 
 	var Client = require('node-xmpp-client');
-	var Element = require('node-xmpp-core').Stanza.Element;
+	var Element = require('node-xmpp-stanza').Element;
 	var that = this;
 
 	this.connection = connection = new Client({
