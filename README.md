@@ -3,21 +3,20 @@
 Very simple library that allows you to build chat builds with Node.js.
 
 ```
-npm install hangouts-bot
+$ npm i hangouts-bot
 ```
 
-```
-var hangoutsBot = require("hangouts-bot");
-var bot = new hangoutsBot("someone@gmail.com", "password");
+```js
+const hangoutsBot = require("hangouts-bot");
+const bot = new hangoutsBot("someone@gmail.com", "password");
 
-bot.on('online', function() {
+bot.on('online', () => {
 	console.log('online');
 });
 
-bot.on('message', function(from, message) {
+bot.on('message', (from, message) => {
 	console.log(from + ">> " + message);
 });
-
 ```
 
 More to come!
