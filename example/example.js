@@ -1,8 +1,8 @@
 // Example hangouts bot
 // Run with node example.js <username> <password>
 
-var hangoutsBot = require("../index.js");
-var bot = new hangoutsBot(process.argv[2], process.argv[3]);
+const hangoutsBot = require("../index.js");
+const bot = new hangoutsBot(process.argv[2], process.argv[3]);
 
 bot.on('online', function() {
 	console.log('online');

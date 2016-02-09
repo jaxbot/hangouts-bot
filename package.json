@@ -6,10 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaxbot/hangouts-bot.git"
+  },
   "author": "Jonathan Warner (Jaxbot)",
   "license": "MIT",
   "dependencies": {
     "node-xmpp-client": "^3.0.0",
-    "node-xmpp-stanza": "^1.0.0"
+    "node-xmpp-stanza": "^1.1.0"
   }
 }

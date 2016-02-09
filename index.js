@@ -1,11 +1,11 @@
-var events = require('events');
+const events = require('events');
 
 module.exports = function(username, password, onlineStatus) {
 	events.EventEmitter.call(this);
 
-	var Client = require('node-xmpp-client');
-	var Element = require('node-xmpp-stanza').Element;
-	var that = this;
+	const Client = require('node-xmpp-client');
+	const Element = require('node-xmpp-stanza').Element;
+	const that = this;
 
 	this.connection = connection = new Client({
 		jid: username,
@@ -45,7 +45,7 @@ module.exports = function(username, password, onlineStatus) {
 			);
 		}
 
-		if(stanza.is('presence') && stanza.attrs.type === 'subscribe') {
+		if (stanza.is('presence') && stanza.attrs.type === 'subscribe') {
 			stanza.attrs.to = stanza.attrs.from;
 			delete stanza.attrs.from;
 
@@ -53,18 +53,14 @@ module.exports = function(username, password, onlineStatus) {
 		}
 	});
 
-	this.connection.on('error', function(e) {
-		console.log(e);
-	});
+	this.connection.on('error', console.log);
 
 	this.sendMessage = function(to, message) {
-		var stanza = new Element('message',
-			{
-				to: to,
-				type: 'chat'
-			})
-			.c('body')
-			.t(message);
+		var stanza = new Element('message', {
+			to: to,
+			type: 'chat'
+		}).c('body')
+		.t(message);
 
 		this.connection.send(stanza);
 	}
@@ -73,4 +69,3 @@ module.exports = function(username, password, onlineStatus) {
 }
 
 module.exports.prototype.__proto__ = events.EventEmitter.prototype;
-
