@@ -16,6 +16,8 @@ bot.on('online', function() {
 
 bot.on('message', function(from, message) {
 	console.log(from + ">> " + message);
+
+	bot.sendMessage(from, "Hello, this is a bot.");
 });
 
 ```
